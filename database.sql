@@ -2,25 +2,25 @@
 create table Alkohol (
 Alko_Id smallint unique not null primary key,
 Alko_Type varchar(50) unique not null,
-Alko_CO2e int not null
+Alko_CO2e decimal (10,5) not null
 );
 
 create table Madvarer(
 Mad_Id smallint unique not null primary key,
 Mad_Type varchar(50) unique not null,
-Mad_CO2e int not null
+Mad_CO2e decimal (10,5) not null
 );
 
 create table Streaming (
 Stream_Id smallint unique not null primary key,
 Stream_Type varchar(50) unique not null,
-Stream_CO2e int not null
+Stream_CO2e decimal (10,5) not null
 );
 
 create table Transport (
 Trans_Id smallint unique not null primary key,
 Trans_Type varchar(50) unique not null,
-Trans_CO2e int not null
+Trans_CO2e decimal (10,5) not null
 );
 */
 /*
