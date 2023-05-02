@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .slider {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Range Slider 1</h2>
+  <input type="range" min="0" max="100" value="50" class="slider" id="rangeSlider1">
+  <p>Value: <span id="sliderValue1"></span></p>
+
+  <h2>Range Slider 2</h2>
+  <input type="range" min="0" max="100" value="50" class="slider" id="rangeSlider2">
+  <p>Value: <span id="sliderValue2"></span></p>
+
+  <script>
+    var slider1 = document.getElementById("rangeSlider1");
+    var output1 = document.getElementById("sliderValue1");
+    output1.innerHTML = slider1.value;
+
+    slider1.oninput = function() {
+      output1.innerHTML = this.value;
+    };
+
+    var slider2 = document.getElementById("rangeSlider2");
+    var output2 = document.getElementById("sliderValue2");
+    output2.innerHTML = slider2.value;
+
+    slider2.oninput = function() {
+      output2.innerHTML = this.value;
+    };
+  </script>
+</body>
+</html>
