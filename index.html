@@ -8,22 +8,45 @@
 <div class="bg-image"></div>
   <h1>Hvor meget har du drukket?</h1>
     
+  <div id="slider1">
   <input type="range" min="0" max="10" value="0" class="slider" id="myRange">
   <p> Øl:  <span id="demo"></span> </p>
+</div>
 
+<div id="slider2">
   <input type="range" min="0" max="10" value="0" class="slider" id="myRange2">
   <p>Vin: <span id="demo2"></span></p>
+</div>
 
+<div id="slider3">
   <input type="range" min="0" max="10" value="0" class="slider" id="myRange3">
   <p>Drinks: <span id="demo3"></span></p>
+</div>
 
   <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
+    
+    var slider1 = document.getElementById("myRange");
+    var output1 = document.getElementById("demo");
+    output1.innerHTML = slider1.value;
+  
+    slider1.oninput = function() {
+      output1.innerHTML = this.value;
+    }
 
-    slider.oninput = function() {
-      output.innerHTML = this.value;
+    var slider2 = document.getElementById("myRange2");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+
+    slider2.oninput = function() {
+      output2.innerHTML = this.value;
+    }
+
+    var slider3 = document.getElementById("myRange3");
+    var output3 = document.getElementById("demo3");
+    output3.innerHTML = slider3.value;
+
+    slider3.oninput = function() {
+      output3.innerHTML = this.value;
     }
   </script>
 
