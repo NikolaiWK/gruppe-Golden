@@ -2,54 +2,20 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    h1 {
-      text-align: center;
-    }
-    body {
-      height: 100%;
-      margin: 0;
-    }
-    
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .slider {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 50%;
-      height: 10px;
-      border-radius: 5px;
-      background: #23ba2d;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
-    }
-    .slider:hover {
-      opacity: 1;
-    }
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 50px;
-      height: 50px;
-      background: url("øl.png") no-repeat center center;
-      background-size: cover;
-      cursor: pointer;
-    }
-    
-  </style>
+    <link rel="stylesheet" href="style.css"
 </head>
 <body>
-
+<div class="bg-image"></div>
   <h1>Hvor meget har du drukket?</h1>
-
+    
   <input type="range" min="0" max="10" value="0" class="slider" id="myRange">
-  <p>Value: <span id="demo"></span></p>
+  <p> Øl:  <span id="demo"></span> </p>
+
+  <input type="range" min="0" max="10" value="0" class="slider" id="myRange2">
+  <p>Vin: <span id="demo2"></span></p>
+
+  <input type="range" min="0" max="10" value="0" class="slider" id="myRange3">
+  <p>Drinks: <span id="demo3"></span></p>
 
   <script>
     var slider = document.getElementById("myRange");
