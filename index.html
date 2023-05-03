@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css"
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../d3.js"></script>
 </head>
 <body>
 <div class="bg-image"></div>
@@ -26,19 +27,11 @@
   <p>Drinks: <span id="demo3"></span></p>
 </div>
 
-<button type="button" onclick="openTab('b1');" class="knap">Generer dit CO₂e forbrug</button>
-
-<div id="b1" class="containerknap" >
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times; </span>
-<p>test </p>
-
-</div>
+<button type="button" onclick="openTab();" class="knap">Generer dit CO₂e forbrug</button>
+<p id="resultat" style="display:none;"> virker det nu?</p>
 
 
-
-
-<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
-</a>
+<div class="scroll-down"></div>
 
 
 
@@ -68,13 +61,9 @@
       output3.innerHTML = this.value;
     }
 
-    function openTab(b1) {
-      var i, x;
-      x = document.getElementsByClassName("containerTab");
-      for (i=0; i<x.leght; i++){
-        x[i].style.display="none";
-      }
-      document.getElementById(b1).style.display="block";
+    function openTab() {
+      var p= document.getElementById("resultat");
+      p.style.display="block";
     }
   </script>
 
