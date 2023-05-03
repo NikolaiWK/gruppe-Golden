@@ -2,62 +2,79 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    h1 {
-      text-align: center;
-    }
-    body {
-      height: 100%;
-      margin: 0;
-    }
-    
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .slider {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 50%;
-      height: 10px;
-      border-radius: 5px;
-      background: #23ba2d;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
-    }
-    .slider:hover {
-      opacity: 1;
-    }
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 50px;
-      height: 50px;
-      background: url("øl.png") no-repeat center center;
-      background-size: cover;
-      cursor: pointer;
-    }
-    
-  </style>
+    <link rel="stylesheet" href="style.css"
 </head>
 <body>
-
+<div class="bg-image"></div>
   <h1>Hvor meget har du drukket?</h1>
 
-  <input type="range" min="0" max="10" value="0" class="slider" id="myRange">
-  <p>Value: <span id="demo"></span></p>
+
+
+    
+  <div id="slider1">
+  <input type="range" min="0" max="10" value="0" class="slider slider1" id="myRange">
+  <p> Øl:  <span id="demo"></span> </p>
+</div>
+
+<div id="slider2">
+  <input type="range" min="0" max="10" value="0" class="slider slider2" id="myRange2">
+  <p>Vin: <span id="demo2"></span></p>
+</div>
+
+<div id="slider3">
+  <input type="range" min="0" max="10" value="0" class="slider slider3" id="myRange3">
+  <p>Drinks: <span id="demo3"></span></p>
+</div>
+
+<button type="button" onclick="openTab('b1');" class="knap">Generer dit CO₂e forbrug</button>
+
+<div id="b1" class="containerknap" >
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times; </span>
+<p>test </p>
+
+</div>
+
+
+
+
+<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
+</a>
+
+
 
   <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
+    
+    var slider1 = document.getElementById("myRange");
+    var output1 = document.getElementById("demo");
+    output1.innerHTML = slider1.value;
+  
+    slider1.oninput = function() {
+      output1.innerHTML = this.value;
+    }
 
-    slider.oninput = function() {
-      output.innerHTML = this.value;
+    var slider2 = document.getElementById("myRange2");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+
+    slider2.oninput = function() {
+      output2.innerHTML = this.value;
+    }
+
+    var slider3 = document.getElementById("myRange3");
+    var output3 = document.getElementById("demo3");
+    output3.innerHTML = slider3.value;
+
+    slider3.oninput = function() {
+      output3.innerHTML = this.value;
+    }
+
+    function openTab(b1) {
+      var i, x;
+      x = document.getElementsByClassName("containerTab");
+      for (i=0; i<x.leght; i++){
+        x[i].style.display="none";
+      }
+      document.getElementById(b1).style.display="block";
     }
   </script>
 
