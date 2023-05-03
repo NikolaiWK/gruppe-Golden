@@ -125,7 +125,7 @@
    
     .scroll-down-arrow {
       /* lav billede om til en pil plus animation */
-      background-image: url(øl.png);
+      background-image: url(pil.png);
       background-size: contain;
       background-repeat: no-repeat;
     
