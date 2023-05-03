@@ -1,3 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#section1 {
+  height: 1200px;
+
+}
 
 
    #slider1 {
@@ -133,8 +141,8 @@
       text-shadow: 0;
       width: 13px;
       height: 13px;
-      border-bottom: 2px solid #c61313;
-      border-right: 2px solid #ae0f0f;
+      border-bottom: 2px solid #000000;
+      border-right: 2px solid #030303;
       z-index: 9;
       left: 50%;
       -webkit-transform: translate(-50%, 0%) rotate(45deg);
