@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alkohol CO2e</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <a href="index.html" class="back-button">Tilbage til forsiden</a>
+  <div id="chart"></div>
+  <script>
+    // Hent data fra serveren
+    fetch('/alkohol')
+      .then(response => response.json())
+      .then(data => {
+        const x = data.map(row => row.time);
+        const y = data.map(row => row.alko_type);
+        const trace = {
+          x: x,
+          y: y,
+          type: 'scatter'
+        };
+        const layout = {
+          title: 'Alkohol CO2e',
+          xaxis: {
+            title: 'Time'
+          },
+          yaxis: {
+            title: 'Alkohol type'
+          }
+        };
+        Plotly.newPlot('chart', [trace], layout);
+      });
+  </script>
+</body>
+</html>
