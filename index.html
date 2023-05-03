@@ -26,7 +26,21 @@
   <p>Drinks: <span id="demo3"></span></p>
 </div>
 
-<button type="button" class="knap">Generer dit CO₂e forbrug</button>
+<button type="button" onclick="openTab('b1');" class="knap">Generer dit CO₂e forbrug</button>
+
+<div id="b1" class="containerknap" >
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times; </span>
+<p>test </p>
+
+</div>
+
+
+
+
+<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
+</a>
+
+
 
   <script>
     
@@ -52,6 +66,15 @@
 
     slider3.oninput = function() {
       output3.innerHTML = this.value;
+    }
+
+    function openTab(b1) {
+      var i, x;
+      x = document.getElementsByClassName("containerTab");
+      for (i=0; i<x.leght; i++){
+        x[i].style.display="none";
+      }
+      document.getElementById(b1).style.display="block";
     }
   </script>
 
