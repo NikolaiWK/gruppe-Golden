@@ -69,14 +69,13 @@
     }
 
     function openTab() {
-      var p= document.getElementById("resultat");
-      p.style.display="block";
-    }
-
-    function openTab() {
   var p = document.getElementById("resultat");
+  var oldResult = p.querySelector("p");
+  if (oldResult) {
+    p.removeChild(oldResult);
+  }
   p.style.display = "block";
-  
+
   // Get the values from the sliders
   var beer = parseInt(document.getElementById("myRange").value);
   var wine = parseInt(document.getElementById("myRange2").value);
@@ -84,11 +83,11 @@
 
   var øl = 5;
   var vin = 5;
-  var vodka =5;
+  var vodka = 5;
 
   // Calculate the CO2e emissions
-  var co2e = (beer*øl + wine*vin + drinks*vodka) 
-  
+  var co2e = beer * øl + wine * vin + drinks * vodka;
+
   // Display the result
   var result = document.createElement("p");
   result.innerHTML = "Din bytur svarer til " + co2e + " kg CO₂e.";
