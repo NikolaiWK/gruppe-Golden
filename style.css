@@ -171,4 +171,64 @@ html {
       100% { transform:translate(0,10px) rotate(45deg); opacity: 0; }
     }
    
+
+
+    .rowContainer {
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    .rammer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      font-size: 25px;
+    }
     
+    
+    .box {
+      width: 250px;
+      height: 250px;
+      margin: 10px;
+    }
+    
+    .slide-objekt-1 {
+      background-color: blue;
+    }
+    
+    .slide-objekt-2 {
+      background-color: green;
+    }
+    
+    .slide-objekt-3 {
+      background-color: red;
+    }
+    
+
+    .containerTab {
+      padding: 20px;
+      color: white;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Closable button inside the image */
+    .closebtn {
+      float: right;
+      color: white;
+      font-size: 35px;
+      cursor: pointer;
+    }
+
+    .pop-up {
+      width: 790px;
+      height: 250px;
+      margin: 10px ;
+    }
