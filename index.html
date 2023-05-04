@@ -29,7 +29,7 @@
 </div>
 
 <button type="button" onclick="openTab();" class="knap">Generer dit CO₂e forbrug</button>
-<p id="resultat" style="display:none;"> Din bytur svarer til...</p>
+<p id="resultat" style="display:none;"> </p>
 
 
 <div class="scroll-down"></div>
@@ -73,7 +73,28 @@
       p.style.display="block";
     }
 
-   
+    function openTab() {
+  var p = document.getElementById("resultat");
+  p.style.display = "block";
+  
+  // Get the values from the sliders
+  var beer = parseInt(document.getElementById("myRange").value);
+  var wine = parseInt(document.getElementById("myRange2").value);
+  var drinks = parseInt(document.getElementById("myRange3").value);
+
+  var øl = 5;
+  var vin = 5;
+  var vodka =5;
+
+  // Calculate the CO2e emissions
+  var co2e = (beer*øl + wine*vin + drinks*vodka) 
+  
+  // Display the result
+  var result = document.createElement("p");
+  result.innerHTML = "Din bytur svarer til " + co2e + " kg CO₂e.";
+  p.appendChild(result);
+}
+
   </script>
 
 </body>
