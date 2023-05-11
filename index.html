@@ -11,7 +11,7 @@
   <h1>Hvor meget har du drukket?</h1>
 
   
-  
+  <!--De tre sliders, øl, vin, drinks-->
   <div id="slider1">
   <input type="range" min="0" max="10" value="0" class="slider slider1" id="myRange">
   <p> Øl:  <span id="demo"></span> </p>
@@ -27,15 +27,20 @@
   <p>Drinks: <span id="demo3"></span></p>
 </div>
 
+
+<!--knap "generer dit co2e"-->
 <button type="button" onclick="calculateCO2e();" class="knap">Generer dit CO₂e forbrug</button>
 <p id="resultat" style="display:none;"> </p>
 
-
+<!--Scroll down-->
 <div class="scroll-down"></div>
 
 <div class="main" id="section1">
-  
+
+
+ <!--dette er de tre kasser-->  
 </div>
+
 <!-- det her er vores kasser nederst på siden-->
 <div class="boxes">
 <div class="rowContainer" id="row">
@@ -55,10 +60,9 @@
 </div>
 
 
+<!--Dette er de tre pop-up kasser der individuelt kommer op ved tryk på de tre kasser ovenfor-->
 <div class="pop-up">
-<!-- The expanding grid (hidden by default) -->
 <div id="b1" class="containerTab" style="display:none;background:blue">
-  <!-- If you want the ability to close the container, add a close button -->
   <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
   <h2>Box 1</h2>
   <p>Nikolai skylder øl</p>
@@ -76,12 +80,13 @@
   <p>Mathias skylder øl</p>
 </div>
 </div>
+
 </div>
 
 
   <script>
 
-
+// Alders begrænsning på siden
 var agePrompt=prompt("Venligst indtast din alder.");
 
 if (agePrompt>=18) {
@@ -91,6 +96,7 @@ if (agePrompt>=18) {
   document.location="https://www.sik.dk/erhverv/medicin-og-alderskontrol/alderskontrol/alderskontrol-salg-alkohol";
 }
     
+    // Dette er scripted for sliderne (1,2,3)
     var slider1 = document.getElementById("myRange");
     var output1 = document.getElementById("demo");
     output1.innerHTML = slider1.value;
@@ -115,9 +121,8 @@ if (agePrompt>=18) {
       output3.innerHTML = this.value;
     }
 
+    // Udregningen der sker efter tryk på "knap-generer", den aflæser sliderne og udfører en ligning for de enkelte emner
     function calculateCO2e() {
-      
-
   var p = document.getElementById("resultat");
   var oldResult = p.querySelector("p");
   if (oldResult) {
@@ -130,6 +135,8 @@ if (agePrompt>=18) {
   var wine = parseInt(document.getElementById("myRange2").value);
   var drinks = parseInt(document.getElementById("myRange3").value);
 
+
+  //Nedenstående er mockup tal for hvert slider interval øverst på siden
   var øl = 5;
   var vin = 5;
   var vodka = 5;
@@ -143,7 +150,7 @@ if (agePrompt>=18) {
   p.appendChild(result);
 }
 
-
+//Dette er scripted for de tre pop-up kasser 
 // Hide all elements with class="containerTab", except for the one that matches the clickable grid column
 function openTab(tabName) {
   var i, x;
