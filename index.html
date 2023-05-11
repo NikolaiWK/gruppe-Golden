@@ -36,7 +36,7 @@
 <div class="main" id="section1">
   
 </div>
-
+<!-- det her er vores kasser nederst på siden-->
 <div class="boxes">
 <div class="rowContainer" id="row">
     <div class="slides">
@@ -80,6 +80,16 @@
 
 
   <script>
+
+
+var agePrompt=prompt("Venligst indtast din alder.");
+
+if (agePrompt>=18) {
+  alert('Velkommen til vores hjemmeside!')
+} else {
+  alert('Beklager makker, du er sku for ung!');
+  document.location="https://www.sik.dk/erhverv/medicin-og-alderskontrol/alderskontrol/alderskontrol-salg-alkohol";
+}
     
     var slider1 = document.getElementById("myRange");
     var output1 = document.getElementById("demo");
