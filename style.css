@@ -198,17 +198,21 @@ html {
       font-size: 25px;
     }
     
-    
+    /* ændrer synligheden når man hover over boxene*/
+    .box:hover {
+      opacity: 2;
+  }
     .box {
       width: 250px;
       height: 250px;
       margin: 10px;
+      opacity: 0.8;
     }
     
     .slide-objekt-1 {
-      background-color: blue;
+      background-image: url(computermand.png);
     }
-    
+
     .slide-objekt-2 {
       background-color: green;
     }
