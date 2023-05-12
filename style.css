@@ -211,14 +211,17 @@ html {
     
     .slide-objekt-1 {
       background-image: url(computermand.png);
+      background-color: #3b882e;
     }
 
     .slide-objekt-2 {
-      background-color: green;
+      background-image: url(fly.png);
+      background-color: #3b882e;
     }
-    
+
     .slide-objekt-3 {
-      background-color: red;
+      background-image: url(fork-and-knife.png);
+      background-color: #3b882e;
     }
     
 
