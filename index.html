@@ -8,7 +8,10 @@
 <body>
   
   <div class="bg-image"></div>
-  <h1>Hvor meget har du drukket?</h1>
+  <h1>Din byturs CO₂e aftryk</h1>
+  <br>
+  <br>
+  <h2>Hvor meget har du drukket?</h2>
 
   
   
@@ -36,20 +39,26 @@
 <div class="main" id="section1">
   
 </div>
-
+<!-- det her er vores kasser nederst på siden-->
 <div class="boxes">
 <div class="rowContainer" id="row">
     <div class="slides">
       <div class="rammer">
-        <div class="slide-objekt-1 box" onclick="openTab('b1');">
-        <p>hvem skylder øl?</p>
+        <div class="overbox"><p>Streaming</p>
+        <div class="slide-objekt-1 box" onclick="openTab('b1');" >
+        
         </div>
+        </div>
+        <div class="overbox"><p>Transport</p>
         <div class="slide-objekt-2 box" onclick="openTab('b2');">
-          <p>hvem skylder næste øl?</p>
+          <p></p>
         </div>
+      </div>
+        <div class="overbox"><p>Madvarer</p>
         <div class="slide-objekt-3 box" onclick="openTab('b3');">
-          <p>Hvem skylder næste igen?</p>
+          <p></p>
         </div>
+      </div>
       </div>
     </div>
 </div>
@@ -57,7 +66,7 @@
 
 <div class="pop-up">
 <!-- The expanding grid (hidden by default) -->
-<div id="b1" class="containerTab" style="display:none;background:blue">
+<div id="b1" class="containerTab" style="display:none;background: rgb(31, 12, 206)">
   <!-- If you want the ability to close the container, add a close button -->
   <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
   <h2>Box 1</h2>
@@ -79,8 +88,18 @@
 </div>
 
 
-  <script>
-    
+<script>
+
+/*
+var agePrompt=prompt("Venligst indtast din alder.");
+
+if (agePrompt>=18) {
+  alert('Velkommen til vores hjemmeside!')
+} else {
+  alert('Beklager makker, du er sku for ung!');
+  document.location="https://www.sik.dk/erhverv/medicin-og-alderskontrol/alderskontrol/alderskontrol-salg-alkohol";
+}
+    */
     var slider1 = document.getElementById("myRange");
     var output1 = document.getElementById("demo");
     output1.innerHTML = slider1.value;

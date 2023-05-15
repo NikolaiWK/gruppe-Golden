@@ -3,7 +3,7 @@ html {
 }
 
 #section1 {
-  height: 1200px;
+  height: 500px;
 
 }
 
@@ -163,6 +163,10 @@ html {
       -moz-animation:    fade_move_down 1s ease-in-out infinite;
       animation:         fade_move_down 1s ease-in-out infinite;
     }
+
+    .scroll-down:hover {
+      
+    }
     
     
     /*animated scroll arrow animation*/
@@ -198,23 +202,39 @@ html {
       font-size: 25px;
     }
     
-    
+    .overbox {
+      width: 250px;
+      height: 325px;
+      margin: 10px;
+      opacity: 0.9;
+     color: whitesmoke;
+    }
+
+
+    /* ændrer synligheden når man hover over boxene*/
+    .box:hover {
+      opacity: 2;
+  }
     .box {
       width: 250px;
       height: 250px;
-      margin: 10px;
+      
+      
     }
     
     .slide-objekt-1 {
-      background-color: blue;
+      background-image: url(computermand.png);
+      background-color: #3b882e;
     }
-    
+
     .slide-objekt-2 {
-      background-color: green;
+      background-image: url(fly.png);
+      background-color: #3b882e;
     }
-    
+
     .slide-objekt-3 {
-      background-color: red;
+      background-image: url(fork-and-knife.png);
+      background-color: #3b882e;
     }
     
 
