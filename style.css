@@ -11,7 +11,7 @@ html {
   background-image: url("Green-silhouette-forest-abstract-background-environment-shutterstock-692341585.jpg");
   background-size: cover;
   background-position: center;
-  height: 270%;
+  height: 120%;
   width: 100%;
   position: absolute;
   top: 0;
@@ -164,9 +164,6 @@ html {
       animation:         fade_move_down 1s ease-in-out infinite;
     }
 
-    .scroll-down:hover {
-      
-    }
     
     
     /*animated scroll arrow animation*/
@@ -207,18 +204,19 @@ html {
       height: 325px;
       margin: 10px;
       opacity: 0.9;
-     color: whitesmoke;
+      color: #3b882e;
+      font-weight: bold;
     }
 
 
     /* ændrer synligheden når man hover over boxene*/
     .box:hover {
-      opacity: 2;
+      opacity: 0.5;
   }
     .box {
       width: 250px;
       height: 250px;
-      
+      opacity: 1;
       
     }
     
