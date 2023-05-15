@@ -1,11 +1,16 @@
 const express = require('express')
-const { Pool } = require('pg')
+const cors = require('cors');
+const { Client } = require('pg')
 
 const app = express()
 const port = 3000
 
+app.use(cors({
+  origin: '*'
+}));
+
 //Her opretter jeg en databasepool 
-const pool = new Pool({
+const client = new Client({
   user: 'jendnhkx',
   host: 'hattie.db.elephantsql.com',
   database: 'jendnhkx',
@@ -19,10 +24,8 @@ app.use(express.static(__dirname));
 //Her henter vi dataen fra databasen og sender den som JSON
 app.get('/alkohol', async (req, res) => {
   try {
-    const client = await pool.connect();
     const result = await client.query('SELECT * FROM alkohol');
     const rows = result.rows;
-    client.release();
     res.json(rows);
   } catch (err) {
     console.error(err);

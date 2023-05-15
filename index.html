@@ -150,18 +150,24 @@ if (agePrompt>=18) {
   var wine = parseInt(document.getElementById("myRange2").value);
   var drinks = parseInt(document.getElementById("myRange3").value);
 
-  var øl = 5;
-  var vin = 5;
-  var vodka = 5;
+  
+
+  d3.json ("http://localhost:3000/alkohol").then(function (dataset){
+  var øl = parseFloat(dataset[0].alko_co2e);
+  var vin = parseFloat(dataset[2].alko_co2e);
+  var vodka = parseFloat(dataset[3].alko_co2e);
+
+    var co2e = beer * øl + wine * vin + drinks * vodka;
+
+// Display the result
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + co2e + " kg CO₂e.</span>";
+p.appendChild(result);
+}
+  ); //ændre localhost til server, når den er oppe
 
   // Calculate the CO2e emissions
-  var co2e = beer * øl + wine * vin + drinks * vodka;
-
-  // Display the result
-  var result = document.createElement("p");
-  result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + co2e + " kg CO₂e.</span>";
-  p.appendChild(result);
-}
+    }
 
 
 // Hide all elements with class="containerTab", except for the one that matches the clickable grid column
