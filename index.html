@@ -76,13 +76,13 @@
   <div id="b2" class="containerTab" style="display:none;background: green">
     <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
     <h2>Box 2</h2>
-    <p>Anna skylder øl</p>
+    <p id="box2"></p>
   </div>
   
   <div id="b3" class="containerTab" style="display:none;background: rgb(0, 128,0)">
     <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
     <h2>Box 3</h2>
-    <p>Mathias skylder øl</p>
+    <p id="box3"></p>
   </div>
   </div>
   </div>
@@ -153,13 +153,15 @@ if (agePrompt>=18) {
   
 
   d3.json ("http://localhost:3000/alkohol").then(function (dataset){  //ændre localhost til server, når den er oppe
-  var øl = parseFloat(dataset[0].alko_co2e);
-  var vin = parseFloat(dataset[2].alko_co2e);
-  var vodka = parseFloat(dataset[3].alko_co2e);
+  var øl = parseFloat(dataset[0].alko_co2e/2).toFixed(2);
+  var vin = parseFloat(dataset[2].alko_co2e/6).toFixed(2);
+  var vodka = parseFloat(dataset[3].alko_co2e/18).toFixed(2);
 
 // Calculate the CO2e emissions
     var co2e = beer * øl + wine * vin + drinks * vodka;
-    CalculateStream(co2e);
+    faktabox1(co2e);
+    faktabox2(co2e);
+    faktabox3(co2e);
 
 // Display the result
 var result = document.createElement("p");
@@ -183,9 +185,9 @@ function openTab(tabName) {
 }
 
 
-// NY!!! Her prøver jeg at lave bokse der skal indeholde data
+// Dette er fakta boks 1
 
-function CalculateStream(co2e) {
+function faktabox1(co2e) {
 
   var p = document.getElementById("box1");
   var oldResult = p.querySelector("p");
@@ -204,6 +206,58 @@ var StreamResult = (co2e / streaming).toFixed(2);
 // Display the result
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming</span>";
+p.appendChild(result);
+});
+
+}
+
+// Dette er fakta boks 2
+
+function faktabox2(co2e) {
+
+var p = document.getElementById("box2");
+var oldResult = p.querySelector("p");
+if (oldResult) {
+  p.removeChild(oldResult);
+}
+p.style.display = "block";
+
+
+d3.json ("http://localhost:3000/transport").then(function (dataset){  //ændre localhost til server, når den er oppe
+var transport = parseFloat(dataset[0].trans_co2e);
+var transResult = (co2e / transport).toFixed(2);
+
+
+
+// Display the result
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult + " km i bus du kan kører</span>";
+p.appendChild(result);
+});
+
+}
+
+// Dette er fakta boks 3
+
+function faktabox3(co2e) {
+
+var p = document.getElementById("box3");
+var oldResult = p.querySelector("p");
+if (oldResult) {
+  p.removeChild(oldResult);
+}
+p.style.display = "block";
+
+
+d3.json ("http://localhost:3000/madvarer").then(function (dataset){  //ændre localhost til server, når den er oppe
+var madvarer = parseFloat(dataset[0].mad_co2e);
+var madResult = (co2e / madvarer).toFixed(2);
+
+
+
+// Display the result
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult + " kg kyllingebryst</span>";
 p.appendChild(result);
 });
 
