@@ -69,19 +69,16 @@
   <div id="b1" class="containerTab" style="display:none;background: rgb(0, 128, 0)">
     <!-- If you want the ability to close the container, add a close button -->
     <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-    <h2>Box 1</h2>
     <p id="box1"></p>
   </div>
   
   <div id="b2" class="containerTab" style="display:none;background: green">
     <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-    <h2>Box 2</h2>
     <p id="box2"></p>
   </div>
   
   <div id="b3" class="containerTab" style="display:none;background: rgb(0, 128,0)">
     <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-    <h2>Box 3</h2>
     <p id="box3"></p>
   </div>
   </div>
@@ -146,19 +143,20 @@ if (agePrompt>=18) {
   p.style.display = "block";
 
   // Get the values from the sliders
-  var beer = parseInt(document.getElementById("myRange").value);
-  var wine = parseInt(document.getElementById("myRange2").value);
-  var drinks = parseInt(document.getElementById("myRange3").value);
+  var beer = parseInt(document.getElementById("myRange").value).toFixed(2);
+  var wine = parseInt(document.getElementById("myRange2").value).toFixed(2);
+  var drinks = parseInt(document.getElementById("myRange3").value).toFixed(2);
 
   
 
   d3.json ("http://localhost:3000/alkohol").then(function (dataset){  //ændre localhost til server, når den er oppe
-  var øl = parseFloat(dataset[0].alko_co2e/2).toFixed(2);
-  var vin = parseFloat(dataset[2].alko_co2e/6).toFixed(2);
-  var vodka = parseFloat(dataset[3].alko_co2e/18).toFixed(2);
+  var øl = parseFloat(dataset[0].alko_co2e/2);
+  var vin = parseFloat(dataset[2].alko_co2e/6);
+  var vodka = parseFloat(dataset[3].alko_co2e/18);
 
 // Calculate the CO2e emissions
     var co2e = beer * øl + wine * vin + drinks * vodka;
+    co2e = co2e.toFixed(2);
     faktabox1(co2e);
     faktabox2(co2e);
     faktabox3(co2e);
