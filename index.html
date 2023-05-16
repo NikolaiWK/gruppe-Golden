@@ -70,7 +70,7 @@
     <!-- If you want the ability to close the container, add a close button -->
     <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
     <h2>Box 1</h2>
-    <p>Nikolai skylder øl</p>
+    <p id="box1"></p>
   </div>
   
   <div id="b2" class="containerTab" style="display:none;background: green">
@@ -152,21 +152,23 @@ if (agePrompt>=18) {
 
   
 
-  d3.json ("http://localhost:3000/alkohol").then(function (dataset){
+  d3.json ("http://localhost:3000/alkohol").then(function (dataset){  //ændre localhost til server, når den er oppe
   var øl = parseFloat(dataset[0].alko_co2e);
   var vin = parseFloat(dataset[2].alko_co2e);
   var vodka = parseFloat(dataset[3].alko_co2e);
 
+// Calculate the CO2e emissions
     var co2e = beer * øl + wine * vin + drinks * vodka;
+    CalculateStream(co2e);
 
 // Display the result
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + co2e + " kg CO₂e.</span>";
 p.appendChild(result);
 }
-  ); //ændre localhost til server, når den er oppe
+  ); 
 
-  // Calculate the CO2e emissions
+ 
     }
 
 
@@ -179,6 +181,57 @@ function openTab(tabName) {
   }
   document.getElementById(tabName).style.display = "block";
 }
+
+
+// NY!!! Her prøver jeg at lave bokse der skal indeholde data
+/*
+function CalculateStream(co2e) {
+
+  var p = document.getElementById("box1");
+  var oldResult = p.querySelector("p");
+  if (oldResult) {
+    p.removeChild(oldResult);
+  }
+  p.style.display = "block";
+
+
+d3.json ("http://localhost:3000/streaming").then(function (dataset){  //ændre localhost til server, når den er oppe
+var streaming = parseFloat(dataset[0].stream_co2e);
+var StreamResult = streaming / co2e;
+
+console.log(StreamResult);
+
+// Display the result
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " timer streaming</span>";
+p.appendChild(result);
+});
+
+}*/
+
+function CalculateStream(co2e) {
+  var p = document.getElementById("box1");
+  var oldResult = p.querySelector("p");
+  if (oldResult) {
+    p.removeChild(oldResult);
+  }
+  p.style.display = "block";
+
+  d3.json("http://localhost:3000/streaming").then(function(dataset) {
+    var streaming = parseFloat(dataset[1].stream_co2e);
+    var streamResult = co2e / streaming;
+
+    console.log(streamResult);
+
+    // Display the result
+    var result = document.createElement("p");
+    result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + streamResult + " timers streaming</span>";
+    p.appendChild(result);
+  });
+}
+
+
+
 
   </script>
 
