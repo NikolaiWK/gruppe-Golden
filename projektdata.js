@@ -35,6 +35,50 @@ app.get('/alkohol', async (req, res) => {
   }
 });
 
+// Maddatabasen
+app.get('/madvarer', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM madvarer');
+    const rows = result.rows;
+    res.json(rows);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+// Streaming
+app.get('/streaming', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM streaming');
+    const rows = result.rows;
+    res.json(rows);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+
+// Transport
+app.get('/transport', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM transport');
+    const rows = result.rows;
+    res.json(rows);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+
 //Starter serveren i porten
 app.listen(port, () => {
   console.log(`Appen kører på http://localhost:${port}`);
