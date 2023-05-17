@@ -89,7 +89,7 @@
  
 
 
-<div class="main" id="section2">
+
   <h2>Test din byturs CO2e forbrug mod unge danskere</h2>
 
   <button type="button" onclick="barrace();" class="knap" id="klik">Start race</button>
@@ -98,12 +98,13 @@
     <svg id="race" width="960px" height="800px">
       <rect id="rectArea1" x="10" y="200" width="0" height="30" stroke="black" fill="#69b3a2" stroke-width="1"/>
       <rect id="rectArea2" x="10" y="250" width="0" height="30" stroke="black" fill="#69b3a2" stroke-width="1"/>
-
+      <text id="textElement1" x="220" y="270" font-size="14" font-weight="bold" fill="black" opacity="0">Du er en fårking svagdrikker!!</text>
+      <text id="textElement2" x="220" y="220" font-size="14" font-weight="bold" fill="black" opacity="0">Winner winner Chicken dinner</text>
     </svg>
   </div>
 
   
-</div>
+
 
 <script>
 
@@ -183,13 +184,7 @@ var co2e;
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + co2e + " kg CO₂e.</span>";
 p.appendChild(result);
-
-
-
 }); 
-
-
-
 }
 
 
@@ -227,7 +222,6 @@ var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming</span>";
 p.appendChild(result);
 });
-
 }
 
 // Dette er fakta boks 2
@@ -247,14 +241,13 @@ var transport = parseFloat(dataset[0].trans_co2e);
 var transResult = (co2e / transport).toFixed(2);
 
 
-
 // Display the result
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult + " km i bus du kan kører</span>";
 p.appendChild(result);
 });
-
 }
+
 
 // Dette er fakta boks 3
 
@@ -273,7 +266,6 @@ var madvarer = parseFloat(dataset[0].mad_co2e);
 var madResult = (co2e / madvarer).toFixed(2);
 
 
-
 // Display the result
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult + " kg kyllingebryst</span>";
@@ -281,8 +273,8 @@ p.appendChild(result);
 });
 }
 
-// Bar chart race nedenfor
 
+// Bar chart race nedenfor
 function barrace() {
   var gennemsnit = 100; // dette er mock data SKAL ÆNDRES, gennemsnit fra klassen
   console.log(co2e);
@@ -298,6 +290,18 @@ function barrace() {
     .delay(100)
     .duration(2000)
     .attr("width", gennemsnit + "px");
+
+  d3.select("#textElement1")
+        .transition()
+        .delay(2100)
+        .duration(500)
+        .attr("opacity", "1");
+
+  d3.select("#textElement2")
+        .transition()
+        .delay(2100)
+        .duration(500)
+        .attr("opacity", "1");
 }
 
 
