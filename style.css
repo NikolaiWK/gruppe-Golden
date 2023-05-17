@@ -13,10 +13,12 @@ html {
 
 .bg-image {
   background-image: url("Green-silhouette-forest-abstract-background-environment-shutterstock-692341585.jpg");
+  
   background-size: cover;
   background-position: center;
   height: 120%;
   width: 100%;
+  opacity: 0.8;
   position: absolute;
   top: 0;
   left: 0;
