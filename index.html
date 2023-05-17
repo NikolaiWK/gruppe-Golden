@@ -94,9 +94,6 @@
     <svg id="race" width="960px" height="800px">
       <rect id="rectArea1" x="10" y="200" width="0" height="30" stroke="black" fill="#69b3a2" stroke-width="1"/>
       <rect id="rectArea2" x="10" y="250" width="0" height="30" stroke="black" fill="#69b3a2" stroke-width="1"/>
-      <text id="textElement1" x="420" y="270" font-size="14" font-weight="bold" fill="black" opacity="0">Du er en fårking svagdrikker!!</text>
-      <text id="textElement2" x="420" y="220" font-size="14" font-weight="bold" fill="black" opacity="0">Winner winner Chicken dinner</text>
-
 
     </svg>
   </div>
@@ -144,6 +141,8 @@ if (agePrompt>=18) {
       output3.innerHTML = this.value;
     }
 
+var co2e;
+
     function calculateCO2e() {
       
 
@@ -167,7 +166,7 @@ if (agePrompt>=18) {
   var vodka = parseFloat(dataset[3].alko_co2e/18);
 
 // Calculate the CO2e emissions
-    var co2e = beer * øl + wine * vin + drinks * vodka;
+    co2e = beer * øl + wine * vin + drinks * vodka;
     co2e = co2e.toFixed(2);
 
 
@@ -176,15 +175,18 @@ if (agePrompt>=18) {
     faktabox3(co2e);
 
     // var nyco2e = co2e;
-   // barrace(nyco2e);
+   
 
 
 // Display the result
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + co2e + " kg CO₂e.</span>";
 p.appendChild(result);
-}
-  ); 
+
+
+
+}); 
+
 
 
 }
@@ -280,42 +282,22 @@ p.appendChild(result);
 
 // Bar chart race nedenfor
 
-d3.select("#klik")
-
-
-      // Koden herunder køres kun ved tryk på knappen
-      .on("click", function barrace(nyco2e) {
-  
-  var gennemsnit = 500;
-
-  
+function barrace() {
+  var gennemsnit = 100; // dette er mock data SKAL ÆNDRES, gennemsnit fra klassen
+  console.log(co2e);
 
   d3.select("#rectArea1")
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("width", nyco2e + "px")
+    .attr("width", co2e * 50 + "px");
 
-    d3.select("#rectArea2")
+  d3.select("#rectArea2")
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("width", gennemsnit + "px")
-       
-
-    d3.select("#textElement1")
-        .transition()
-        .delay(2100)
-        .duration(500)
-        .attr("opacity", "1");
-
-    d3.select("#textElement2")
-        .transition()
-        .delay(2100)
-        .duration(500)
-        .attr("opacity", "1");
-
-});
+    .attr("width", gennemsnit + "px");
+}
 
 
 
