@@ -3,7 +3,7 @@ html {
 }
 
 #section1 {
-  height: 500px;
+  height: 300px;
 
 }
 
@@ -12,7 +12,7 @@ html {
   background-color:#C9EBF2;
   background-size: cover;
   background-position: center;
-  height: 310%;
+  height: 280%;
   width: 100%;
   opacity: 1;
   position: absolute;
@@ -133,11 +133,11 @@ html {
     
     .knap:hover {
       background-color: #024873;
-      opacity: 0.6;
+      opacity: 0.8;
     }
     
     .knap:active {
-      background-color: #3e8e41;
+      background-color: #ce1515;
       box-shadow: 0 5px #666;
       transform: translateY(4px);
     }
@@ -205,7 +205,7 @@ html {
       height: 325px;
       margin: 10px;
       opacity: 0.9;
-      color: #3b882e;
+      color: #024873;
       font-weight: bold;
     }
 
@@ -223,7 +223,7 @@ html {
     
     .slide-objekt-1 {
       background-image: url(Streaming.png);
-      background-color: #3b882e;
+      background-color: #024873;
       height: 60%;
       width: 80%;
       margin: 20px;
@@ -232,7 +232,7 @@ html {
 
     .slide-objekt-2 {
       background-image: url(Transport.jpg);
-      background-color: #3b882e;
+      background-color: #024873;
       height: 60%;
       width: 80%;
       margin: 20px;
@@ -241,7 +241,7 @@ html {
 
     .slide-objekt-3 {
       background-image: url(madvarer.jpg);
-      background-color: #3b882e;
+      background-color: #024873;
       height: 60%;
       width: 80%;
       margin: 20px;
@@ -277,7 +277,7 @@ html {
     }
 
     #race {
-      margin-left: 500px;
+      margin-left: 70px;
     }
   
 
