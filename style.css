@@ -8,13 +8,13 @@ html {
 }
 
 .bg-image {
-  background-image: url("Green-silhouette-forest-abstract-background-environment-shutterstock-692341585.jpg");
-  
+  /*background-image: url("Green-silhouette-forest-abstract-background-environment-shutterstock-692341585.jpg");*/
+  background-color:#C9EBF2;
   background-size: cover;
   background-position: center;
-  height: 120%;
+  height: 310%;
   width: 100%;
-  opacity: 0.8;
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -66,6 +66,7 @@ html {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .slider {
@@ -74,15 +75,15 @@ html {
       width: 60%;
       height: 10px;
       border-radius: 5px;
-      background: #ee0a0a;
+      background: #024873;
       outline: none;
-      opacity: 0.7;
+      opacity: 1;
       -webkit-transition: .2s;
       transition: opacity .2s;
     }
 
     .slider:hover {
-      opacity: 1;
+      opacity: 0.5;
     }
 
     .slider1::-webkit-slider-thumb {
@@ -124,14 +125,16 @@ html {
       text-decoration: none;
       outline: none;
       color: #fff;
-      background-color: #4CAF50;
+      background-color: #024873;
       border: none;
       border-radius: 15px;
       box-shadow: 0 9px #999;
     }
     
     .knap:hover {
-      background-color: #3e8e41}
+      background-color: #024873;
+      opacity: 0.6;
+    }
     
     .knap:active {
       background-color: #3e8e41;
@@ -140,21 +143,16 @@ html {
     }
 
     #resultat {
-      color: #fff5f5
+      color: black;
     }
 
     .scroll-down {
       position: absolute;
-      left: 50%;
       bottom: 10px;
       display: block;
-      text-align: center;
-      font-size: 20px;
-      z-index: 100;
-      text-decoration: none;
-      text-shadow: 0;
-      width: 19px;
-      height: 19px;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 20px;
       border-bottom: 4px solid #000000;
       border-right: 4px solid #000000;
       z-index: 9;

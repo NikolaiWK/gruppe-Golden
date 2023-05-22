@@ -8,7 +8,7 @@
 <body>
   
   <div class="bg-image"></div>
-  <h1>Beregn din byturs CO₂e aftryk</h1>
+  <h1>Beregn din byturs <a style="color: #88BF50"> CO₂e</a> aftryk</h1>
   <br>
   <br>
   <h2>Indtast herunder hvor meget alkohol du har indtaget</h2>
@@ -30,7 +30,7 @@
   <p>Drinks: <span id="demo3"></span></p>
 </div>
 
-<button type="button" onclick="calculateCO2e();" class="knap">Generer dit CO₂e forbrug</button>
+<button type="button" onclick="calculateCO2e();" class="knap">Generer dit <a style="color: #88BF50"> CO₂e</a> forbrug</button>
 <p id="resultat" style="display:none;"> </p>
 
 
@@ -182,7 +182,8 @@ var co2e;
 
 // Display the result
 var result = document.createElement("p");
-result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + co2e + " kg CO₂e.</span>";
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til  "+ co2e + " kg <span style='color: #88BF50;'>CO₂e</span>.</span>";
+
 p.appendChild(result);
 }); 
 }
