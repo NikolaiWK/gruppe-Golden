@@ -151,6 +151,10 @@ if (agePrompt>=18) {
     }
 
 var co2e;
+var øl;
+var vin;
+var vodka;
+var gennemsnit;
 
     function calculateCO2e() {
       
@@ -170,9 +174,9 @@ var co2e;
   
 
   d3.json ("http://localhost:3000/alkohol").then(function (dataset){  //ændre localhost til server, når den er oppe
-  var øl = parseFloat(dataset[0].alko_co2e/2);
-  var vin = parseFloat(dataset[2].alko_co2e/6);
-  var vodka = parseFloat(dataset[3].alko_co2e/18);
+  øl = parseFloat(dataset[0].alko_co2e/2);
+  vin = parseFloat(dataset[2].alko_co2e/6);
+  vodka = parseFloat(dataset[3].alko_co2e/18);
 
 // Calculate the CO2e emissions
     co2e = beer * øl + wine * vin + drinks * vodka;
@@ -182,6 +186,8 @@ var co2e;
     faktabox1(co2e);
     faktabox2(co2e);
     faktabox3(co2e);
+
+    console.log(øl, vin, vodka)
 
     // var nyco2e = co2e;
    
@@ -282,22 +288,63 @@ p.appendChild(result);
 }
 
 
+
+/*
+d3.json("http://localhost:3000/gennemsnit").then(function(dataset) { // Ændre localhost til server, når vi er på render
+  var gennemsnit_øl = dataset.slice(0, 9).map(function(d) {
+    return d.gem_Øl;
+  });
+  var gennemsnit_vin = dataset.slice(0, 9).map(function(d) {
+    return d.gem_vin;
+  });
+  var gennemsnit_drinks = dataset.slice(0, 9).map(function(d) {
+    return d.gem_drinks;
+  });
+  console.log(gennemsnit_øl);
+  console.log(gennemsnit_vin);
+  console.log(gennemsnit_drinks);
+
+// Calculate the average of 'gem_øl'
+var averageØl = d3.mean(gennemsnit_øl);
+
+// Calculate the average of 'gem_vin'
+var averageVin = d3.mean(gennemsnit_vin);
+
+// Calculate the average of 'gem_drinks'
+var averageDrinks = d3.mean(gennemsnit_drinks);
+
+
+console.log("Average Øl: " + averageØl * øl);
+console.log("Average Vin: " + averageVin * vin);
+console.log("Average Drinks: " + averageDrinks * vodka);
+
+
+gennemsnit = (averageØl * øl) + (averageVin * vin) + (averageDrinks * vodka); // dette er gennemsnit co2e for klassen
+
+
+});
+*/
+
+gennemsnit = 2.22;
+console.log(gennemsnit);
+
+
+
 // Bar chart race nedenfor
 function barrace() {
-  var gennemsnit = 100; // dette er mock data SKAL ÆNDRES, gennemsnit fra klassen
   console.log(co2e);
 
   d3.select("#rectArea1")
     .transition()
     .delay(100)
     .duration(8000)
-    .attr("width", co2e * 50 + "px");
+    .attr("width", co2e * 100 + "px");
 
   d3.select("#rectArea2")
     .transition()
     .delay(100)
     .duration(8000)
-    .attr("width", gennemsnit + "px");
+    .attr("width", gennemsnit *100 + "px");
 
   d3.select("#textElement1")
         .transition()
@@ -311,6 +358,7 @@ function barrace() {
         .duration(500)
         .attr("opacity", "1");
 }
+
 
 
 

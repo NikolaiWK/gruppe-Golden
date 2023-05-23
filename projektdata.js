@@ -78,6 +78,20 @@ app.get('/transport', async (req, res) => {
   }
 });
 
+// Gennemsnit
+app.get('/gennemsnit', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM gennemsnit');
+    const rows = result.rows;
+    res.json(rows);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
 
 //Starter serveren i porten
 app.listen(port, () => {
