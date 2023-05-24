@@ -8,7 +8,7 @@
 <body>
   
   <div class="bg-image"></div>
-  <h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Beregn din byturs <a style="color: #88BF50"> CO₂e</a> aftryk &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="infobox.html">&#8505;</a></h1> 
+  <h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Beregn din byturs <a style="color: #88BF50"> CO₂e</a> aftryk &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="infobox.html" style="color: #024873">&#8505;</a></h1> 
   <br>
   <h2>Brug skyderne nedenfor for at angive mængden af <a style="color: orange">alkohol</a> du har indtaget</h2>
 
@@ -88,7 +88,9 @@
   </div>
 
 
-
+  <br>
+  <br>
+  <br>
  
 
 
@@ -262,12 +264,24 @@ p.style.display = "block";
 d3.json ("http://localhost:3000/transport").then(function (dataset){  //ændre localhost til server, når den er oppe
 var transport = parseFloat(dataset[0].trans_co2e);
 var transResult = (co2e / transport).toFixed(2);
-
+var transport1 = parseFloat(dataset[1].trans_co2e);
+var transResult1 = (co2e / transport1).toFixed(2);
+var transport2 = parseFloat(dataset[2].trans_co2e);
+var transResult2 = (co2e / transport2).toFixed(2);
 
 // Display the result
 var result = document.createElement("p");
-result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult + " km i bus du kan kører</span>";
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult + " km i Bus du kan køre</span>";
 p.appendChild(result);
+
+var result2 = document.createElement("p");
+    result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult1 + " km i Tog du kan køre</span>";
+    p.appendChild(result2);
+
+    var result3 = document.createElement("p");
+    result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult2 + " km i Benzin bil du kan køre</span>";
+    p.appendChild(result3);
+
 });
 }
 
@@ -287,12 +301,26 @@ p.style.display = "block";
 d3.json ("http://localhost:3000/madvarer").then(function (dataset){  //ændre localhost til server, når den er oppe
 var madvarer = parseFloat(dataset[0].mad_co2e);
 var madResult = (co2e / madvarer).toFixed(2);
+var madvarer1 = parseFloat(dataset[1].mad_co2e);
+var madResult1 = (co2e / madvarer1).toFixed(2);
+var madvarer2 = parseFloat(dataset[2].mad_co2e);
+var madResult2 = (co2e / madvarer2).toFixed(2);
+
 
 
 // Display the result
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult + " kg kyllingebryst</span>";
 p.appendChild(result);
+
+var result2 = document.createElement("p");
+    result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult1 + " kg Hakket Oksekød</span>";
+    p.appendChild(result2);
+
+    var result3 = document.createElement("p");
+    result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult2 + " kg Æbleskiver</span>";
+    p.appendChild(result3);
+
 });
 }
 
