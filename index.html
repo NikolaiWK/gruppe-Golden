@@ -6,7 +6,7 @@
     <script type="text/javascript" src="../d3.js"></script>
 </head>
 <body>
-  
+  <!--"&emsp;" er en måde at lave mellemrum på, og &#8505; er et billede for vores i ikon-->
   <div class="bg-image"></div>
   <h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Beregn din byturs <a style="color: #88BF50"> CO₂e</a> aftryk &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="infobox.html" style="color: #024873">&#8505;</a></h1> 
   <br>
@@ -15,7 +15,7 @@
   <br>
   <br>
   <div id="slider1">
-  <input type="range" min="0" max="20" value="0" class="slider slider1 myDIV" id="myRange">
+  <input type="range" min="0" max="20" value="0" class="slider slider1" id="myRange">
   <br>
   <p class="p-slider">Fadøl:  <span id="demo"></span> </p>
   <br>
@@ -33,6 +33,7 @@
   <p class="p-slider">Drinks: <span id="demo3"></span></p>
 </div>
 <br>
+
 <button type="button" onclick="calculateCO2e();" class="knap">Generer dit <a style="color: #88BF50"> CO₂e</a> forbrug</button>
 <p id="resultat" style="display:none;"> </p>
 
@@ -114,7 +115,7 @@
 <script>
 
 
-
+/* alders restriktion, fra 18 og op kan man komme ind på hjemmesiden, ellers bliver man videreført til linket*/
 var agePrompt=prompt("Venligst indtast din alder.");
 
 if (agePrompt>=18) {
@@ -123,7 +124,7 @@ if (agePrompt>=18) {
   alert('Beklager makker, du er sku for ung!');
   document.location="https://www.sik.dk/erhverv/medicin-og-alderskontrol/alderskontrol/alderskontrol-salg-alkohol";
 }
-    
+    /*læser tallet man har valgt på slideren */
     var slider1 = document.getElementById("myRange");
     var output1 = document.getElementById("demo");
     output1.innerHTML = slider1.value;
@@ -147,7 +148,7 @@ if (agePrompt>=18) {
     slider3.oninput = function() {
       output3.innerHTML = this.value;
     }
-
+    /*vores globale variabler*/ 
 var co2e;
 var øl;
 var vin;
@@ -171,7 +172,7 @@ var gennemsnit;
 
   
 
-  d3.json ("https://alko-co2e-api.onrender.com/alkohol").then(function (dataset){  //ændre localhost til server, når den er oppe
+  d3.json ("https://alko-co2e-api.onrender.com/alkohol").then(function (dataset){  //henter fra vores api
   øl = parseFloat(dataset[0].alko_co2e/2);
   vin = parseFloat(dataset[2].alko_co2e/6);
   vodka = parseFloat(dataset[3].alko_co2e/18);
@@ -230,13 +231,13 @@ var StreamResult2 = (co2e / streaming2).toFixed(2);
 
 
 
-// Display the result
+// vis resultatet
 var result = document.createElement("p");
 result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming på Instagram</span>";
 
 p.appendChild(result);
 
- // Add two more results
+ // tilføjer 2 resultater mere
  var result2 = document.createElement("p");
     result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult1 + " minuters streaming på TikTok</span>";
     p.appendChild(result2);
@@ -325,7 +326,7 @@ var result2 = document.createElement("p");
 }
 
 
-
+/*det her er et snip af hvad vi havde prøvet at få til at fungere */
 /*  Dette er forsøg på at navigerer databasen, men vi oplever der er for mange connections åbne, så vi bliver nødt til at hard-code tallet 2.22kg co2e, værende gennemsnit
 d3.json("http://localhost:3000/gennemsnit").then(function(dataset) { // Ændre localhost til server, når vi er på render
   var gennemsnit_øl = dataset.slice(0, 9).map(function(d) {
