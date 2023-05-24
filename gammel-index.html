@@ -1,16 +1,3 @@
-<!--Ting ændret
-  I copy.html, er svg filen ændret. ryddet op i kode,
-Tekst, svg
-Svg, barcharts er nu i relation til svg elemented, og derved sammenlignlige, --- Ville have en "tick" tid/enhed på grafen, lykkedes ikke
-Info side
-"forsiden" har slettet et par <br> for at tilpasse scroll pilene
-lavet classe på alle <p> tilsvarende style.css
-Tekst popup ved hover, bryder mig ikke om det, discoverability
-
-
--->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +15,7 @@ Tekst popup ved hover, bryder mig ikke om det, discoverability
   <br>
   <br>
   <div id="slider1">
-  <input type="range" min="0" max="20" value="0" class="slider slider1 myDIV" id="myRange">
-    <div class="hide">I am shown when someone hovers over the div above.</div>
+  <input type="range" min="0" max="20" value="0" class="slider slider1" id="myRange">
   <br>
   <p class="p-slider">Fadøl:  <span id="demo"></span> </p>
   <br>
@@ -113,11 +99,11 @@ Tekst popup ved hover, bryder mig ikke om det, discoverability
 
    <!--SVG og rectangles for bar race--> 
   <div>
-    <svg id="race" width="800px" height="400px">
+    <svg id="race" width="600px" height="400px">
       <rect id="rectArea1" x="10" y="200" width="0" height="30" fill="orange" stroke-width="1"/>
       <rect id="rectArea2" x="10" y="250" width="0" height="30" fill="orange" stroke-width="1"/>
-      <text id="textElement1" x="20" y="270" font-size="14" font-weight="bold" fill="#88BF50" opacity="0">Gennemsnit på 2,22kg CO₂e for en bytur</text>
-      <text id="textElement2" x="20" y="220" font-size="14" font-weight="bold" fill="#88BF50" opacity="0">Dit udregnede <a style="color: #88BF50"> CO₂e</a> aftryk</text>
+      <text id="textElement1" x="20" y="270" font-size="14" font-weight="bold" fill="black" opacity="0">Gennemsnit på 2,22kg CO₂e for en bytur</text>
+      <text id="textElement2" x="20" y="220" font-size="14" font-weight="bold" fill="black" opacity="0">Dit udregnede CO₂e aftryk</text>
     </svg>
   </div>
   
@@ -333,8 +319,6 @@ gennemsnit = (averageØl * øl) + (averageVin * vin) + (averageDrinks * vodka); 
 });
 */
 
-
-// Gennemsnit er manuelt udregnet, da elephant.sql ikke kan have nok connections åbne til vi kan regne det ud gennem databasen.
 gennemsnit = 2.22;
 var dataset = [2.22, co2e];
 console.log(gennemsnit);
@@ -345,42 +329,29 @@ console.log(gennemsnit);
 function barrace() {
   console.log(co2e);
 
-  // Get the maximum width of the SVG
-var svgWidth = document.getElementById("race").getBoundingClientRect().width / 10; //delt med 10, for at flytte kommaet
-//  The getBoundingClientRect().width method is used to retrieve the current width of the SVG
+  d3.select("#rectArea1")
+    .transition()
+    .delay(0)
+    .duration(8000)
+    .attr("width", co2e + (co2e * gennemsnit) + "px");
 
-// Calculate the width of the bars based on the maximum width
-var barWidth = (co2e / gennemsnit) * svgWidth;
-
-// Update the width of the bar elements
-d3.select("#rectArea1")
-  .transition()
-  .delay(100)
-  .duration(8000)
-  .attr("width", barWidth + "px"); //Bar størrelsen er relationel til svg elementet
-
-d3.select("#rectArea2")
-  .transition()
-  .delay(100)
-  .duration(8000)
-  .attr("width", svgWidth + "px"); //Bar størrelsen er relationel til svg elementet
-
-// 
-
+  d3.select("#rectArea2")
+    .transition()
+    .delay(0)
+    .duration(8000)
+    .attr("width", gennemsnit + (co2e * gennemsnit) + "px");
 
   d3.select("#textElement1")
         .transition()
         //.delay(8100)
-        .duration(8000)
-        .attr("opacity", "1")
-        .attr("x", svgWidth + 20 + "px"); //Dette får teksten til at starte 20px efter slutning på bar'en 
+        .duration(500)
+        .attr("opacity", "1");
 
   d3.select("#textElement2")
         .transition()
         //.delay(8100)
-        .duration(8000)
-        .attr("opacity", "1")
-        .attr("x", barWidth + 20 + "px"); //Dette får teksten til at starte 20px efter slutning på bar'en 
+        .duration(500)
+        .attr("opacity", "1");
 
 
 

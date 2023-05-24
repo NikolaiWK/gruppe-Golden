@@ -15,7 +15,7 @@
   <br>
   <br>
   <div id="slider1">
-  <input type="range" min="0" max="20" value="0" class="slider slider1" id="myRange">
+  <input type="range" min="0" max="20" value="0" class="slider slider1 myDIV" id="myRange">
   <br>
   <p class="p-slider">Fadøl:  <span id="demo"></span> </p>
   <br>
@@ -99,11 +99,11 @@
 
    <!--SVG og rectangles for bar race--> 
   <div>
-    <svg id="race" width="600px" height="400px">
+    <svg id="race" width="800px" height="400px">
       <rect id="rectArea1" x="10" y="200" width="0" height="30" fill="orange" stroke-width="1"/>
       <rect id="rectArea2" x="10" y="250" width="0" height="30" fill="orange" stroke-width="1"/>
-      <text id="textElement1" x="20" y="270" font-size="14" font-weight="bold" fill="black" opacity="0">Gennemsnit på 2,22kg CO₂e for en bytur</text>
-      <text id="textElement2" x="20" y="220" font-size="14" font-weight="bold" fill="black" opacity="0">Dit udregnede CO₂e aftryk</text>
+      <text id="textElement1" x="20" y="270" font-size="14" font-weight="bold" fill="#88BF50" opacity="0">Gennemsnit på 2,22kg CO₂e for en bytur</text>
+      <text id="textElement2" x="20" y="220" font-size="14" font-weight="bold" fill="#88BF50" opacity="0">Dit udregnede <a style="color: #88BF50"> CO₂e</a> aftryk</text>
     </svg>
   </div>
   
@@ -221,13 +221,28 @@ function faktabox1(co2e) {
 d3.json ("http://localhost:3000/streaming").then(function (dataset){  //ændre localhost til server, når den er oppe
 var streaming = parseFloat(dataset[0].stream_co2e);
 var StreamResult = (co2e / streaming).toFixed(2);
+var streaming1 = parseFloat(dataset[1].stream_co2e);
+var StreamResult1 = (co2e / streaming1).toFixed(2);
+var streaming2 = parseFloat(dataset[2].stream_co2e);
+var StreamResult2 = (co2e / streaming2).toFixed(2);
 
 
 
 // Display the result
 var result = document.createElement("p");
-result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming</span>";
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming på Instagram</span>";
+
 p.appendChild(result);
+
+ // Add two more results
+ var result2 = document.createElement("p");
+    result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult1 + " minuters streaming på TikTok</span>";
+    p.appendChild(result2);
+
+    var result3 = document.createElement("p");
+    result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult2 + " minuters streaming på Youtube</span>";
+    p.appendChild(result3);
+
 });
 }
 
@@ -319,6 +334,8 @@ gennemsnit = (averageØl * øl) + (averageVin * vin) + (averageDrinks * vodka); 
 });
 */
 
+
+// Gennemsnit er manuelt udregnet, da elephant.sql ikke kan have nok connections åbne til vi kan regne det ud gennem databasen.
 gennemsnit = 2.22;
 var dataset = [2.22, co2e];
 console.log(gennemsnit);
@@ -329,29 +346,42 @@ console.log(gennemsnit);
 function barrace() {
   console.log(co2e);
 
-  d3.select("#rectArea1")
-    .transition()
-    .delay(0)
-    .duration(8000)
-    .attr("width", co2e + (co2e * gennemsnit) + "px");
+  // Get the maximum width of the SVG
+var svgWidth = document.getElementById("race").getBoundingClientRect().width / 10; //delt med 10, for at flytte kommaet
+//  The getBoundingClientRect().width method is used to retrieve the current width of the SVG
 
-  d3.select("#rectArea2")
-    .transition()
-    .delay(0)
-    .duration(8000)
-    .attr("width", gennemsnit + (co2e * gennemsnit) + "px");
+// Calculate the width of the bars based on the maximum width
+var barWidth = (co2e / gennemsnit) * svgWidth;
+
+// Update the width of the bar elements
+d3.select("#rectArea1")
+  .transition()
+  .delay(100)
+  .duration(8000)
+  .attr("width", barWidth + "px"); //Bar størrelsen er relationel til svg elementet
+
+d3.select("#rectArea2")
+  .transition()
+  .delay(100)
+  .duration(8000)
+  .attr("width", svgWidth + "px"); //Bar størrelsen er relationel til svg elementet
+
+// 
+
 
   d3.select("#textElement1")
         .transition()
         //.delay(8100)
-        .duration(500)
-        .attr("opacity", "1");
+        .duration(8000)
+        .attr("opacity", "1")
+        .attr("x", svgWidth + 20 + "px"); //Dette får teksten til at starte 20px efter slutning på bar'en 
 
   d3.select("#textElement2")
         .transition()
         //.delay(8100)
-        .duration(500)
-        .attr("opacity", "1");
+        .duration(8000)
+        .attr("opacity", "1")
+        .attr("x", barWidth + 20 + "px"); //Dette får teksten til at starte 20px efter slutning på bar'en 
 
 
 

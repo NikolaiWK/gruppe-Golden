@@ -146,15 +146,6 @@ a:active { color: #024873; }
 
     }
 
-    .hide {
-      display: none;
-    }
-    
-    .myDIV:hover + .hide {
-      display: block;
-      color: red;
-    }
-
     .slider1::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
