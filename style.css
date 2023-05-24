@@ -1,12 +1,15 @@
+/*så det ser naturligt ud og scroll */
 html {
   scroll-behavior: smooth;
 }
 
-
+/*højden på "side 2" efter du har scrollet*/
 #section1 {
   height: 300px;
 
 }
+
+/*borderen omkring overskriften */
 p.solid {border-style: solid;
   border-width: 5px;
   border-radius: 5px;
@@ -127,7 +130,7 @@ a:active { color: orange; }
       color: orange;
       font-weight: bold;
     }
-
+/* alle vores range sliders*/
     .slider {
       -webkit-appearance: none;
       appearance: none;
@@ -140,12 +143,12 @@ a:active { color: orange; }
       -webkit-transition: .2s;
       transition: opacity .2s;
     }
-
+/* synligheden falder når man hover over slideren*/
     .slider:hover {
       opacity: 0.5;
 
     }
-
+/*de 3 forskellige slider billeder */
     .slider1::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -205,7 +208,7 @@ a:active { color: orange; }
     #resultat {
       color: black;
     }
-
+/*pilen som indikere du kan scrolle */
     .scroll-down {
       position: absolute;
       bottom: 10px;
@@ -280,7 +283,7 @@ a:active { color: orange; }
       opacity: 1;
       
     }
-    
+    /*boksene man kan klikke på, for at se hvad c02e er tilsvarende til */
     .slide-objekt-1 {
       background-image: url(Streaming.png);
       background-color: #024873;
