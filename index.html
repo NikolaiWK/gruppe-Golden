@@ -171,7 +171,7 @@ var gennemsnit;
 
   
 
-  d3.json ("http://localhost:3000/alkohol").then(function (dataset){  //ændre localhost til server, når den er oppe
+  d3.json ("https://alko-co2e.onrender.com").then(function (dataset){  //ændre localhost til server, når den er oppe
   øl = parseFloat(dataset[0].alko_co2e/2);
   vin = parseFloat(dataset[2].alko_co2e/6);
   vodka = parseFloat(dataset[3].alko_co2e/18);
@@ -220,7 +220,7 @@ function faktabox1(co2e) {
   p.style.display = "block";
 
 
-d3.json ("http://localhost:3000/streaming").then(function (dataset){  //ændre localhost til server, når den er oppe
+d3.json ("hhttps://alko-co2e.onrender.com").then(function (dataset){  //ændre localhost til server, når den er oppe
 var streaming = parseFloat(dataset[0].stream_co2e);
 var StreamResult = (co2e / streaming).toFixed(2);
 var streaming1 = parseFloat(dataset[1].stream_co2e);
@@ -261,7 +261,7 @@ if (oldResult) {
 p.style.display = "block";
 
 
-d3.json ("http://localhost:3000/transport").then(function (dataset){  //ændre localhost til server, når den er oppe
+d3.json ("https://alko-co2e.onrender.com").then(function (dataset){  //ændre localhost til server, når den er oppe
 var transport = parseFloat(dataset[0].trans_co2e);
 var transResult = (co2e / transport).toFixed(2);
 var transport1 = parseFloat(dataset[1].trans_co2e);
@@ -298,7 +298,7 @@ if (oldResult) {
 p.style.display = "block";
 
 
-d3.json ("http://localhost:3000/madvarer").then(function (dataset){  //ændre localhost til server, når den er oppe
+d3.json ("https://alko-co2e.onrender.com").then(function (dataset){  //ændre localhost til server, når den er oppe
 var madvarer = parseFloat(dataset[0].mad_co2e);
 var madResult = (co2e / madvarer).toFixed(2);
 var madvarer1 = parseFloat(dataset[1].mad_co2e);
