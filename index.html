@@ -239,16 +239,17 @@ var StreamResult2 = (co2e / streaming2).toFixed(2);
 
 
 // Display the result
-var result = document.createElement("p");
-result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming på Instagram</span>";
-
-p.appendChild(result);
-
- // Add two more results
- var result2 = document.createElement("p");
+//tiktok Streaming
+var result2 = document.createElement("p");
     result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult1 + " minuters streaming på TikTok</span>";
     p.appendChild(result2);
 
+// Instagram Streaming
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult + " minuters streaming på Instagram</span>";
+p.appendChild(result);
+
+ // Youtube Streaming
     var result3 = document.createElement("p");
     result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + StreamResult2 + " minuters streaming på Youtube</span>";
     p.appendChild(result3);
@@ -286,17 +287,21 @@ var transport2 = parseFloat(dataset[2].trans_co2e);
 var transResult2 = (co2e / transport2).toFixed(2);
 
 // Display the result
-var result = document.createElement("p");
-result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult + " km i Bus du kan køre</span>";
-p.appendChild(result);
+// Transport i bil
+var result3 = document.createElement("p");
+    result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult2 + " km i Benzin bil du kan køre</span>";
+    p.appendChild(result3);
 
+// Transport i tog
 var result2 = document.createElement("p");
     result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult1 + " km i Tog du kan køre</span>";
     p.appendChild(result2);
 
-    var result3 = document.createElement("p");
-    result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult2 + " km i Benzin bil du kan køre</span>";
-    p.appendChild(result3);
+//Transport i bus
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + transResult + " km i Bus du kan køre</span>";
+p.appendChild(result);
+   
 
 });
 }
@@ -333,17 +338,20 @@ var madResult2 = (co2e / madvarer2).toFixed(2);
 
 
 // Display the result
-var result = document.createElement("p");
-result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult + " kg kyllingebryst</span>";
-p.appendChild(result);
-
+//Hakket Oksekød
 var result2 = document.createElement("p");
     result2.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult1 + " kg Hakket Oksekød</span>";
     p.appendChild(result2);
 
-    var result3 = document.createElement("p");
-    result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult2 + " kg Æbleskiver</span>";
-    p.appendChild(result3);
+//Kyllingekød
+var result = document.createElement("p");
+result.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult + " kg kyllingebryst</span>";
+p.appendChild(result);
+
+//Æbleskiver
+var result3 = document.createElement("p");
+result3.innerHTML = "<span style='font-size: 24px; font-weight: bold;'>Din bytur svarer til " + madResult2 + " kg Æbleskiver</span>";
+p.appendChild(result3);
 
 });
 }
