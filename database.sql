@@ -53,4 +53,25 @@ values (1,'Bus',0.027),
 (3,'Benzin Bil',0.160),
 (4,'Færge',0.170),
 (5,'Fly',0.223);
-*/
+
+
+
+CREATE table Gennemsnit(
+	Gem_Id smallint not null unique primary key,
+	Gem_Øl smallint,
+	Gem_Vin smallint,
+	Gem_Drinks smallint
+);
+
+insert into Gennemsnit ("gem_id","gem_Øl","gem_vin","gem_drinks")
+values (1,4,6,1),
+(2,5,1,1),
+(3,0,0,12),
+(4,15,0,1),
+(5,4,0,10),
+(6,0,0,3),
+(7,4,0,2),
+(8,10,0,5),
+(9,5,0,0);
+
+*/ 
