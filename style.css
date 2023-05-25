@@ -39,7 +39,7 @@ li {
 }
 
 .ul-kilder {
-  list-style: ;
+  
   font-size: 1.2em;
   font-weight: bold;
   
@@ -314,7 +314,7 @@ a:active { color: orange; }
     
 
     .containerTab {
-      padding: 50px;
+      padding: 20px;
       color: white;
     }
     
