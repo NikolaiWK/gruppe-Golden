@@ -218,6 +218,14 @@ function faktabox1(co2e) {
   if (oldResult) {
     p.removeChild(oldResult);
   }
+  var oldResult1 = p.querySelector("p");
+  if (oldResult1) {
+    p.removeChild(oldResult1);
+  }
+  var oldResult2 = p.querySelector("p");
+  if (oldResult2) {
+    p.removeChild(oldResult2);
+  }
   p.style.display = "block";
 
 
@@ -254,12 +262,20 @@ p.appendChild(result);
 
 function faktabox2(co2e) {
 
-var p = document.getElementById("box2");
-var oldResult = p.querySelector("p");
-if (oldResult) {
-  p.removeChild(oldResult);
-}
-p.style.display = "block";
+  var p = document.getElementById("box2");
+  var oldResult = p.querySelector("p");
+  if (oldResult) {
+    p.removeChild(oldResult);
+  }
+  var oldResult1 = p.querySelector("p");
+  if (oldResult1) {
+    p.removeChild(oldResult1);
+  }
+  var oldResult2 = p.querySelector("p");
+  if (oldResult2) {
+    p.removeChild(oldResult2);
+  }
+  p.style.display = "block";
 
 
 d3.json ("https://alko-co2e-api.onrender.com/transport").then(function (dataset){  //ændre localhost til server, når den er oppe
@@ -291,12 +307,20 @@ var result2 = document.createElement("p");
 
 function faktabox3(co2e) {
 
-var p = document.getElementById("box3");
-var oldResult = p.querySelector("p");
-if (oldResult) {
-  p.removeChild(oldResult);
-}
-p.style.display = "block";
+  var p = document.getElementById("box3");
+  var oldResult = p.querySelector("p");
+  if (oldResult) {
+    p.removeChild(oldResult);
+  }
+  var oldResult1 = p.querySelector("p");
+  if (oldResult1) {
+    p.removeChild(oldResult1);
+  }
+  var oldResult2 = p.querySelector("p");
+  if (oldResult2) {
+    p.removeChild(oldResult2);
+  }
+  p.style.display = "block";
 
 
 d3.json ("https://alko-co2e-api.onrender.com/madvarer").then(function (dataset){  //ændre localhost til server, når den er oppe
